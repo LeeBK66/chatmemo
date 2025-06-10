@@ -17,6 +17,17 @@ function adjustTextareaHeight() {
     textarea.style.height = (textarea.scrollHeight) + 'px';
 }
 
+// 현재 시간을 포맷팅하는 함수
+function formatDateTime() {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    
+    return `${month}/${day} ${hours}:${minutes}`;
+}
+
 function sendMessage() {
     const messageInput = document.getElementById('message-input');
     const message = messageInput.value.trim();
@@ -35,7 +46,7 @@ function sendMessage() {
         
         // 메시지를 메모장으로 이동할 수 있도록 클릭 이벤트 추가
         messageElement.onclick = function() {
-            moveToMemo(message);
+            moveToMemo(userName, message);
         };
         
         chatDisplay.appendChild(messageElement);
@@ -45,12 +56,22 @@ function sendMessage() {
     }
 }
 
-function moveToMemo(text) {
+function moveToMemo(userName, text) {
     const memoDisplay = document.getElementById('memo-display');
     const memoItem = document.createElement('div');
     memoItem.className = 'memo-item';
-    memoItem.textContent = text;
+    
+    // 메모 항목에 이름, 내용, 시간을 포함하는 HTML 생성
+    memoItem.innerHTML = `
+        <div class="memo-header">
+            <span class="memo-name">${userName}</span>
+            <span class="memo-time">${formatDateTime()}</span>
+        </div>
+        <div class="memo-content">${text}</div>
+    `;
+    
     memoDisplay.appendChild(memoItem);
+    memoDisplay.scrollTop = memoDisplay.scrollHeight;
 }
 
 // Enter 키로 메시지 전송 (Shift + Enter는 줄바꿈)

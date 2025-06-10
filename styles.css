@@ -57,7 +57,7 @@ body {
 }
 
 #chat-input-area {
-    height: 25vh;
+    height: 12.5vh;
     display: flex;
     gap: 10px;
     padding: 10px 0;
@@ -123,11 +123,35 @@ body {
 }
 
 .memo-item {
-    margin: 5px 0;
-    padding: 8px;
+    margin: 8px 0;
+    padding: 12px;
     background-color: #fff3cd;
     border: 1px solid #ffeeba;
     border-radius: 4px;
+}
+
+.memo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ffeeba;
+}
+
+.memo-name {
+    font-weight: bold;
+    color: #856404;
+}
+
+.memo-time {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.memo-content {
+    color: #333;
+    word-break: break-all;
 }
 
 .hidden {
