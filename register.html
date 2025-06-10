@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅 메모장 - 회원가입</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="register-container" class="container">
+        <h2>회원가입</h2>
+        <div class="register-form">
+            <input type="text" id="name" placeholder="이름 (20자 이하)" maxlength="20">
+            <input type="password" id="password" placeholder="비밀번호 (6자 이하)" maxlength="6">
+            <input type="password" id="confirm-password" placeholder="비밀번호 확인" maxlength="6">
+            <button onclick="register()">가입하기</button>
+        </div>
+        <div class="login-options">
+            <a href="index.html" class="link-btn">로그인으로 돌아가기</a>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html> 
